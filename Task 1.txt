@@ -1,0 +1,232 @@
+% =========================================================
+% ARTI 303 - Programming for AI
+% Lab 5 - Working with Rules
+% Task 1 - Family Knowledge Base Rule Testing
+% =========================================================
+
+
+1 ?- consult(['c:/Users/Fatima/Downloads/Lab05_family_kb.pl']).
+true.
+
+% Explanation:
+% The family knowledge base was loaded successfully into SWI-Prolog.
+
+
+% =========================================================
+% Father Rule
+% =========================================================
+
+2 ?- father(homer, bart).
+true.
+
+% Explanation:
+% Homer is a parent of Bart and Homer is male.
+% Therefore, Homer is the father of Bart.
+
+
+3 ?- father(clancy, marge).
+true.
+
+% Explanation:
+% Clancy is a parent of Marge and Clancy is male.
+% Therefore, Clancy is the father of Marge.
+
+
+% =========================================================
+% Mother Rule
+% =========================================================
+
+4 ?- mother(marge, lisa).
+true.
+
+% Explanation:
+% Marge is a parent of Lisa and Marge is female.
+% Therefore, Marge is the mother of Lisa.
+
+
+5 ?- mother(jackie, selma).
+true.
+
+% Explanation:
+% Jackie is a parent of Selma and Jackie is female.
+% Therefore, Jackie is the mother of Selma.
+
+
+% =========================================================
+% Son Rule
+% =========================================================
+
+6 ?- son(bart, homer).
+true.
+
+% Explanation:
+% Homer is a parent of Bart and Bart is male.
+% Therefore, Bart is the son of Homer.
+
+
+7 ?- son(herb, abraham).
+true.
+
+% Explanation:
+% Abraham is a parent of Herb and Herb is male.
+% Therefore, Herb is the son of Abraham.
+
+
+% =========================================================
+% Daughter Rule
+% =========================================================
+
+8 ?- daughter(lisa, homer).
+true.
+
+% Explanation:
+% Homer is a parent of Lisa and Lisa is female.
+% Therefore, Lisa is the daughter of Homer.
+
+
+9 ?- daughter(maggie, marge).
+true.
+
+% Explanation:
+% Marge is a parent of Maggie and Maggie is female.
+% Therefore, Maggie is the daughter of Marge.
+
+
+% =========================================================
+% Brother Rule
+% =========================================================
+
+10 ?- brother(bart, lisa).
+true.
+
+% Explanation:
+% Bart and Lisa share a parent, Bart is male,
+% and they are different people. Therefore, Bart is Lisa's brother.
+
+
+11 ?- brother(homer, herb).
+true.
+
+% Explanation:
+% Homer and Herb share Abraham as a parent, Homer is male,
+% and they are different people. Therefore, Homer is Herb's brother.
+
+
+% =========================================================
+% Sister Rule
+% =========================================================
+
+12 ?- sister(lisa, bart).
+true.
+
+% Explanation:
+% Lisa and Bart share a parent, Lisa is female,
+% and they are different people. Therefore, Lisa is Bart's sister.
+
+
+13 ?- sister(patty, marge).
+true.
+
+% Explanation:
+% Patty and Marge share a parent, Patty is female,
+% and they are different people. Therefore, Patty is Marge's sister.
+
+
+% =========================================================
+% Grandfather Rule
+% =========================================================
+
+14 ?- grandfather(abraham, bart).
+true.
+
+% Explanation:
+% Abraham is the parent of Homer, and Homer is the parent of Bart.
+% Abraham is male, so Abraham is the grandfather of Bart.
+
+
+15 ?- grandfather(clancy, lisa).
+true.
+
+% Explanation:
+% Clancy is the parent of Marge, and Marge is the parent of Lisa.
+% Clancy is male, so Clancy is the grandfather of Lisa.
+
+
+% =========================================================
+% Aunt Rule
+% =========================================================
+
+16 ?- aunt(patty, bart).
+true.
+
+% Explanation:
+% Patty is the sister of Marge, and Marge is a parent of Bart.
+% Therefore, Patty is the aunt of Bart.
+
+
+17 ?- aunt(selma, lisa).
+true.
+
+% Explanation:
+% Selma is the sister of Marge, and Marge is a parent of Lisa.
+% Therefore, Selma is the aunt of Lisa.
+
+
+% =========================================================
+% Uncle Rule
+% =========================================================
+
+18 ?- uncle(herb, bart).
+true.
+
+% Explanation:
+% Herb is the brother of Homer, and Homer is a parent of Bart.
+% Therefore, Herb is the uncle of Bart.
+
+
+19 ?- uncle(herb, lisa).
+true.
+
+% Explanation:
+% Herb is the brother of Homer, and Homer is a parent of Lisa.
+% Therefore, Herb is the uncle of Lisa.
+
+
+% =========================================================
+% Cousin Rule
+% =========================================================
+
+20 ?- cousin(bart, ling).
+true.
+
+% Explanation:
+% Bart's parent Marge and Ling's parent Selma are sisters.
+% Therefore, Bart and Ling are cousins.
+
+
+21 ?- cousin(ling, lisa).
+true.
+
+% Explanation:
+% Ling's parent Selma and Lisa's parent Marge are sisters.
+% Therefore, Ling and Lisa are cousins.
+
+
+% =========================================================
+% Ancestor Rule
+% =========================================================
+
+22 ?- ancestor(abraham, bart).
+true.
+
+% Explanation:
+% Abraham is the parent of Homer, and Homer is the parent of Bart.
+% Therefore, Abraham is an ancestor of Bart through the recursive rule.
+
+
+23 ?- ancestor(jackie, maggie).
+true.
+
+% Explanation:
+% Jackie is the parent of Marge, and Marge is the parent of Maggie.
+% Therefore, Jackie is an ancestor of Maggie through the recursive rule.
